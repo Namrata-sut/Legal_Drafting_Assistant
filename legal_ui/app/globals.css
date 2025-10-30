@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f9fafb;
+  --foreground: #1f2937;
+  --accent: #2563eb;
+  --card-bg: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans, 'Inter', sans-serif);
+  --font-mono: var(--font-geist-mono, monospace);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #e2e8f0;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+    --accent: #3b82f6;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Section Headings */
+h1, h2, h3 {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+/* Upload Box */
+.upload-area {
+  border: 2px dashed var(--border-color);
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--foreground);
+  font-size: 1.1rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.upload-area:hover {
+  border-color: var(--accent);
+  background-color: #f0f9ff;
+}
+
+/* Loading / Message Box */
+.message-box {
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.message-success {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.message-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.message-loading {
+  background-color: #fef9c3;
+  color: #854d0e;
+}
+
+/* ---- Global Chat Interface Styles ---- */
+
+.chat-container {
+  @apply w-full max-w-2xl mx-auto my-8 border rounded-lg shadow-lg bg-white;
+}
+
+.chat-header {
+  @apply text-2xl font-bold p-4 text-center bg-gray-50 border-b;
+}
+
+.chat-body {
+  @apply p-4 h-96 overflow-y-auto bg-white;
+}
+
+.chat-message {
+  @apply my-2 p-3 rounded-lg text-sm whitespace-pre-wrap;
+}
+
+.chat-message-user {
+  @apply bg-blue-100 ml-auto;
+}
+
+.chat-message-ai {
+  @apply bg-gray-100;
+}
+
+.chat-loading {
+  @apply text-center text-gray-500;
+}
+
+.chat-form {
+  @apply p-4 border-t bg-gray-50;
+}
+
+.chat-input-container {
+  @apply flex;
+}
+
+.chat-input {
+  @apply flex-grow p-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.chat-send-button {
+  @apply bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 disabled:bg-blue-300;
+}
+
+/* --- Home Page Layout Styles --- */
+
+.home-container {
+  @apply flex min-h-screen flex-col items-center justify-start p-8 sm:p-12 md:p-24 bg-gray-50;
+}
+
+.home-header {
+  @apply z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex mb-12;
+}
+
+.home-title {
+  @apply text-4xl font-bold text-center w-full text-gray-800 tracking-tight;
+}
+
+.home-section {
+  @apply w-full max-w-3xl;
+}
+
+.home-divider {
+  @apply w-full my-8 border-t border-gray-300;
+}
+
+/* Add consistent look for cards (used by FileUpload & ChatInterface) */
+.card {
+  @apply bg-white border rounded-lg shadow-lg p-6 transition-transform transform hover:scale-[1.01];
+}
+
+/* Add global text/link colors */
+body {
+  @apply text-gray-800;
+}
