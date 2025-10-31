@@ -18,3 +18,4 @@ langchain-core~=0.3.79
 langchain-community~=0.3.31
 protobuf~=5.29.5
 faiss-cpu
+docx2txt
